@@ -1,3 +1,11 @@
 A small little experiment with NowJS, NodeJS and some blueprint for good measure. Adapted from http://nowjs.com/
-Check it out.
+Check it out. http://gabbo.duostack.net
 
+
+*TODO*
+1. Add sessions
+2. Add presence
+3. Add datastore :)
+4. Add rooms
+
+-kev
