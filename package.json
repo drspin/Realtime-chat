@@ -1,0 +1,19 @@
+{
+  "name": "gabbo",
+  "description": "realtime chat with nowJS",
+  "version": "0.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/drspin/Realtime-chat.git"
+  },
+  "author": "Kevin Ewe <kevinewe.projects@gmail.com>",
+  "directories": {
+    "lib": "."
+  },
+  "engines": {
+    "node": "0.4.4"
+  },
+  "dependencies": {
+    "now": "0.3"
+  }
+}
