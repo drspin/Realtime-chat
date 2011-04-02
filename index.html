@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+
+  <title>Chat demo</title>
+  <meta name="description" content="nodeJS chat demo">
+  <meta name="author" content="Kevin Ewe">
+  <link rel="stylesheet" href="blueprint/screen.css" type="text/css" media="screen, projection" />  
+  <link rel="stylesheet" href="blueprint/print.css" type="text/css" media="print" />
+  <link rel="stylesheet" href="chat.css" type="text/css" media="screen" />
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+  <script src="nowjs/now.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div id="header" class="span-24 last"><h3>Realtime Chat</h3></div>
+    <div id="leftbar" class="span-4">&nbsp;</div>
+    <div id="main" class="span-16">
+      <input type="text" id="text-input" class="title">
+      <input type="button" value="Send" id="send-button" class="button">
+      <div class="separate"></div>
+      <div id="msg"></div>
+      <div id="bottom-fade"></div>
+    </div>
+    <div id="rightbar" class="span-4 last">&nbsp;</div>
+    <div id="footer" class="span-24 last">&nbsp;</div>
+  </div>  
+  <script type="text/javascript">
+    $(document).ready(function(){
+      now.name = prompt("name please?", "");
+      now.receiveMessage = function(name, msg){
+        $("<div style='display:none' class='chat'></div>").html("<div class='chat-name'>" + name + "</div><div class='chat-msg'>" + msg + "</div>").prependTo("#msg").slideDown("medium");        
+      };
+      $("#text-input").focus();
+      $("#text-input").keypress(function(e){ 
+        if (e.keyCode == 13 && $("#text-input").val()) {
+          now.distributeMessage($("#text-input").val());
+          $("#text-input").val("");          
+        }
+      });
+      $("#send-button").click(function(){
+        if ($("#text-input").val()){
+          now.distributeMessage($("#text-input").val());
+          $("#text-input").val("");
+          $("#text-input").focus();
+        }
+      });
+    });
+  </script>
+</body>
+</html>
